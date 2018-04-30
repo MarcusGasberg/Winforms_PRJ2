@@ -17,6 +17,7 @@ namespace GUI_PRJ2_WINFORMS
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
         }
     }
 }
