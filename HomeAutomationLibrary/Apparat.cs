@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-[Flags] public enum Func
+[Flags]
+public enum Func
 {
     None = 0,
     OnOff = 1<<0,
@@ -23,19 +24,19 @@ namespace HomeAutomationLibrary
         #endregion
         #region Public Properties
         /// <summary>
-        /// Name of the apparat
+        /// Navnet på apparatet
         /// </summary>
         public string Navn_ { get => navn_; set => navn_ = value; }
         /// <summary>
-        /// The port which the apparat is connected to
+        /// Porten som apparatet er forbundet til
         /// </summary>
         public int Port_ { get => port_; set => port_ = (value>0 && value<4 ? value : 0); }
         /// <summary>
-        /// The picture for the apparat button
+        /// Billedet som skal bruges som ikon til apparatet
         /// </summary>
         public string Billede_ { get => billede_; set => billede_ = value; }
         /// <summary>
-        /// The functionality of the apparat
+        /// Funktionaliteten af apparatet
         /// </summary>
         public Func Funktionalitet_ { get => funktionalitet_; set => funktionalitet_ = (value == Func.OnOff || value == Func.Dimmer ? value : Func.OnOff); }
         #endregion
@@ -50,11 +51,11 @@ namespace HomeAutomationLibrary
             Funktionalitet_ = Func.OnOff;
         }
         /// <summary>
-        /// Parametrized constructor
+        /// Parametriseret Constructor
         /// </summary>
-        /// <param name="navn">The name of the apparat</param>
-        /// <param name="port">The port of the apparat</param>
-        /// <param name="func">The functionality of the apparat</param>
+        /// <param name="navn">Navn på apparatet</param>
+        /// <param name="port">Port på apparatet</param>
+        /// <param name="func">Funktionalitet på apparatet</param>
         public Apparat(string navn, int port, Func func)
         {
             Navn_ = navn;
