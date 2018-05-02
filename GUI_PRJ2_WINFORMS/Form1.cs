@@ -72,7 +72,7 @@ namespace GUI_PRJ2_WINFORMS
         /// <param name="e"></param>
         private void OnButtonActionClick(object sender, ListViewColumnMouseEventArgs e)
         {
-            MessageBox.Show(this, @"you clicked " + e.SubItem.Text);
+            MessageBox.Show($"The selected item has index: {e.Item.Index}");
         }
         /// <summary>
         /// Sets up dummy data
@@ -104,11 +104,11 @@ namespace GUI_PRJ2_WINFORMS
         {
             //Create new apparat
             Apparat apparatToAdd = new Apparat();
-            //Set Navn til Teksten af apparatNameTextbox
+            //Set name to the text apparatNameTextbox
             apparatToAdd.Name_ = apparatNameTextbox.Text;
-            //Set Port til porten der er valgt
-            apparatToAdd.Port_ = portComboBox.SelectedIndex + 1;
-            //Set
+            //Set Port to the port chosen
+            apparatToAdd.Port_ = portComboBox.SelectedIndex;
+            //Set functionality
             foreach (object indexChecked in functionalityCheckBox.CheckedIndices)
             {
                 apparatToAdd.Functionality_ |= (Func)indexChecked;

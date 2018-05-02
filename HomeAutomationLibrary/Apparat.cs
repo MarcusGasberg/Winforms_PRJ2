@@ -74,6 +74,7 @@ namespace HomeAutomationLibrary
             Port_ = port;
             Functionality_ = func;
         }
+        
         #endregion
     }
 }
