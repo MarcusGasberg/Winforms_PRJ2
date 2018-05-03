@@ -139,9 +139,9 @@ namespace GUI_PRJ2_WINFORMS
             this.portComboBox.DisplayMember = "None";
             this.portComboBox.FormattingEnabled = true;
             this.portComboBox.Items.AddRange(new object[] {
+            "Port 0",
             "Port 1",
-            "Port 2",
-            "Port 3"});
+            "Port 2"});
             this.portComboBox.Location = new System.Drawing.Point(22, 110);
             this.portComboBox.Name = "portComboBox";
             this.portComboBox.Size = new System.Drawing.Size(121, 21);

@@ -105,19 +105,31 @@ namespace GUI_PRJ2_WINFORMS
             //Create new apparat
             Apparat apparatToAdd = new Apparat();
             //Set name to the text apparatNameTextbox
-            apparatToAdd.Name_ = apparatNameTextbox.Text;
-            //Set Port to the port chosen
-            apparatToAdd.Port_ = portComboBox.SelectedIndex;
+            apparatToAdd.Name_ = (!string.IsNullOrEmpty(apparatNameTextbox.Text) ? apparatNameTextbox.Text : "Unknown");
+
             //Set functionality
             foreach (object indexChecked in functionalityCheckBox.CheckedIndices)
-            {
                 apparatToAdd.Functionality_ |= (Func)indexChecked;
+
+            //Set Port to the port chosen
+            apparatToAdd.Port_ = portComboBox.SelectedIndex;
+
+            //If the port chosen already exist
+            if (myApparats.Exists(x => x.Port_ == portComboBox.SelectedIndex))
+            {
+                //Replace the apparat
+                int index = myApparats.FindIndex(x => x.Port_ == portComboBox.SelectedIndex);
+                myApparats[index] = apparatToAdd;
             }
-            //Tilfoej det nye apparat
-            myApparats.Add(apparatToAdd);
-            //Opdater listview
+            else
+            {
+                //Else add new apparat
+                myApparats.Add(apparatToAdd);
+            }
+
+            //Update listview
             UpdateListView(listView1);
-            //Skift side tilbage til MainView
+            //Change Page back to Apparat Menu
             MainView.SelectTab(ApparatMenu);
             ApparatMenu.Enabled = true;
             AddMenu.Enabled = false;
@@ -130,7 +142,6 @@ namespace GUI_PRJ2_WINFORMS
             listView1.Columns.Add("Port", 60);
             //Set the selected index of the port
             portComboBox.SelectedIndex = 0;
-
         }
     }
 }
